@@ -56,6 +56,12 @@ export default [
                 component: './TableList',
               },
               {
+                name: 'Playground',
+                icon: 'appstore',
+                path: 'playground',
+                component: './leehow/Playground'
+              },
+              {
                 component: './404',
               },
             ],
