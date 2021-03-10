@@ -18,10 +18,10 @@ const Playground = (props) => {
    * 有副作用的代码不能直接写在function里面
    */
   // setText('Hello, world!')
-  useEffect(() => {
-    setText('Hello, world!')
-    console.log('useEffect called')
-  }, [])
+  // useEffect(() => {
+  //   setText('Hello, world!')
+  //   console.log('useEffect called')
+  // }, [])
   return (
     <div>
       {text}

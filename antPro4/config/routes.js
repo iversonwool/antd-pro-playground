@@ -56,7 +56,7 @@ export default [
                 component: './TableList',
               },
               {
-                name: 'Playground',
+                name: 'playground',
                 icon: 'appstore',
                 path: 'playground',
                 component: './leehow/Playground'
