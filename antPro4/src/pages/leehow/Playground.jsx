@@ -3,6 +3,7 @@ import { Button, Form } from 'antd';
 import modawer from './modawer';
 import LoginComp from './LoginComp';
 import Modalable from './modalable';
+import FunctionComp from './functionComp';
 
 const Playground = (props) => {
   // 我是一段注释
@@ -60,6 +61,9 @@ const Playground = (props) => {
       </Modalable>
 
       我是一个兵 来自老百姓
+
+
+      <FunctionComp />
     </div>
   );
 };

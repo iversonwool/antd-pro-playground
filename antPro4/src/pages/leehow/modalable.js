@@ -1,6 +1,10 @@
 import React from 'react'
 import { Modal } from "antd"
 
+
+/**
+ * this is not a recommanded way
+ */
 class Modalable extends React.Component {
   state = {
     visible: false
