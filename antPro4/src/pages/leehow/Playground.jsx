@@ -5,6 +5,8 @@ import LoginComp from './LoginComp';
 import Modalable from './modalable';
 import FunctionComp from './functionComp';
 
+import UseReducerPlayground from './useReducer'
+
 const Playground = (props) => {
   // 我是一段注释
   // 这个字体好看不
@@ -23,18 +25,18 @@ const Playground = (props) => {
   //   console.log('useEffect called')
   // }, [])
   const [date, setDate] = useState(new Date().toLocaleTimeString())
-  console.log(date)
+  // console.log(date)
   
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const timerID = setInterval(() => {
-      setDate(new Date().toLocaleTimeString())
-    }, 1000)
-    return () => {
-      if (timerID) clearInterval(timerID)
-    }
-  }, [])
+  //   const timerID = setInterval(() => {
+  //     setDate(new Date().toLocaleTimeString())
+  //   }, 1000)
+  //   return () => {
+  //     if (timerID) clearInterval(timerID)
+  //   }
+  // }, [])
   return (
     <div>
       {text}
@@ -74,10 +76,12 @@ const Playground = (props) => {
         <LoginComp />
       </Modalable>
 
-      我是一个兵 来自老百姓
+        
+
+      <UseReducerPlayground />
 
 
-      <FunctionComp />
+      {/* <FunctionComp /> */}
     </div>
   );
 };
