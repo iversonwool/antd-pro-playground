@@ -22,10 +22,24 @@ const Playground = (props) => {
   //   setText('Hello, world!')
   //   console.log('useEffect called')
   // }, [])
+  const [date, setDate] = useState(new Date().toLocaleTimeString())
+  console.log(date)
+  
+
+  useEffect(() => {
+
+    const timerID = setInterval(() => {
+      setDate(new Date().toLocaleTimeString())
+    }, 1000)
+    return () => {
+      if (timerID) clearInterval(timerID)
+    }
+  }, [])
   return (
     <div>
       {text}
 
+      当前时间是：{date}
       <Button block onClick={() => {
         if (showModal) {
           const hideModal = showModal({
