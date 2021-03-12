@@ -9,6 +9,8 @@ import UseReducerPlayground from './useReducer';
 
 import A from './a';
 import MemorizedPlayground from './memorized';
+import StaleExample from './hookStaleExample'
+import PreviousState from './previousState'
 
 const Playground = (props) => {
   // 我是一段注释
@@ -43,6 +45,10 @@ const Playground = (props) => {
   // }, [])
   return (
     <div>
+
+      <PreviousState />
+
+
       {text}
       当前时间是：{date}
       <Button
@@ -113,6 +119,9 @@ const Playground = (props) => {
       </Button>
       <A text={text} />
       <MemorizedPlayground text={textB} />
+
+      <Divider style={{ borderTop: '50px solid black' }} />
+      <StaleExample />
     </div>
   );
 };

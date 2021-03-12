@@ -15,10 +15,10 @@ const MemorizedPlayground = (props) => {
    * 对大组件下面的某个UI区块
    * 进行更加精细的控制
    */
-  // const renderTextCallback = useMemo(
-  //   () => renderText(text),
-  //   [text]
-  // )
+  const renderTextCallback = useMemo(
+    () => renderText(text),
+    [text]
+  )
 
 
   // https://blog.csdn.net/sinat_17775997/article/details/94453167
@@ -35,7 +35,7 @@ const MemorizedPlayground = (props) => {
 
 
         B 区块文本 ---- 
-        {renderTextCallback()}
+        {renderTextCallback}
     </div>
   );
 };
