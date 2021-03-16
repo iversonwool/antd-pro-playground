@@ -6,7 +6,7 @@ import Modalable from './modalable';
 import FunctionComp from './functionComp';
 
 import UseReducerPlayground from './useReducer';
-
+import LayoutEffectDemo from './layoutEffect'
 import A from './a';
 import MemorizedPlayground from './memorized';
 import StaleExample from './hookStaleExample'
@@ -49,6 +49,9 @@ const Playground = (props) => {
 
       <PreviousState />
       <ErrorHandler />
+
+
+      <LayoutEffectDemo />
 
       {text}
       当前时间是：{date}

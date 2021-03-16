@@ -1,0 +1,15 @@
+.App {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.square {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: red;
+  border-radius: 50%;
+}
