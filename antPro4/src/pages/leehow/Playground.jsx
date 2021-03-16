@@ -11,6 +11,7 @@ import A from './a';
 import MemorizedPlayground from './memorized';
 import StaleExample from './hookStaleExample'
 import PreviousState from './previousState'
+import ErrorHandler from './ErrorHandle'
 
 const Playground = (props) => {
   // 我是一段注释
@@ -47,7 +48,7 @@ const Playground = (props) => {
     <div>
 
       <PreviousState />
-
+      <ErrorHandler />
 
       {text}
       当前时间是：{date}
