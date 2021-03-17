@@ -61,6 +61,13 @@ export default [
                 path: 'playground',
                 component: './leehow/Playground'
               },
+
+              {
+                name: 'playground',
+                icon: 'appstore',
+                path: 'playground2',
+                component: './leehow/ReactContext'
+              },
               {
                 component: './404',
               },
