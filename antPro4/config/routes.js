@@ -69,6 +69,12 @@ export default [
                 component: './leehow/ReactContext'
               },
               {
+                name: 'playground111',
+                icon: 'appstore',
+                path: 'playground3',
+                component: './leehow/tsPlayground'
+              },
+              {
                 component: './404',
               },
             ],
