@@ -56,6 +56,12 @@ export default [
                 component: './TableList',
               },
               {
+                name: 'list.table-list',
+                icon: 'table',
+                path: '/list111',
+                component: './list',
+              },
+              {
                 name: 'playground',
                 icon: 'appstore',
                 path: 'playground',
