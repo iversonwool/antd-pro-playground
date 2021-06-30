@@ -29,7 +29,7 @@ class Animation extends Component {
         </TweenOne>
 
         <div>
-          <AnimateCSS />
+          <AnimateCSS className={'dddd'} />
         </div>
       </div>
     );
