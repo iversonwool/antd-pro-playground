@@ -5,6 +5,7 @@ import AnimateCSS from './animate.css';
 import styles from './index.less';
 
 class Animation extends Component {
+  
   render() {
     const { paused } = this.props;
     return (
