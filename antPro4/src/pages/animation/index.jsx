@@ -4,10 +4,26 @@ import TweenOne from 'rc-tween-one';
 import AnimateCSS from './animate.css';
 import styles from './index.less';
 
+import c from 'animate.css'
+import classnames from 'classnames'
+
+import CustomView from './customView'
+
+import AnimateWrapper, { AnimateTypes } from './animate';
+import { Button } from 'antd';
+
+const Comp = () => <h1>HELLO WORLD!</h1>
+
 class Animation extends Component {
+
+  animateAgain = () => { this.animateView.animate() }
   
   render() {
     const { paused } = this.props;
+    // const AnimateView = animate({
+    //   animateComponnet: Comp,
+    //   animateType: AnimateTypes.bounce,
+    // });
     return (
       <div>
         <TweenOne
@@ -25,12 +41,30 @@ class Animation extends Component {
           style={{ transform: 'translateX(-80px)', opacity: 1 }}
           className={styles.box}
         >
-          <div>Hello world!</div>
+          <span>Hello world!</span>
         </TweenOne>
 
+        {/* <CustomView className={classnames(c.animate__animated, c.animate__bounce)} />
+
         <div>
-          <AnimateCSS className={'dddd'} />
+          <AnimateCSS className={'dddd'} style={{ marginLeft: 10 }} />
         </div>
+
+        <AnimateView /> */}
+
+
+        <AnimateWrapper 
+          type={AnimateTypes.bounce} 
+          ref={(animateView) => {this.animateView = animateView}}
+        >
+          <h1>Animate Children</h1>
+          <Comp />
+
+          <Button type="primary">Primary Button</Button>
+        </AnimateWrapper>
+
+
+        <Button type="primary" onClick={this.animateAgain}>trigger</Button>
       </div>
     );
   }
