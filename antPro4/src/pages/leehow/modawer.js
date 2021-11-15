@@ -1,54 +1,64 @@
 import React, { useState } from 'react';
 import { Modal, Drawer } from 'antd';
-import LoginComp from './LoginComp';
+
+export function uniqueKey() {
+  let d = new Date().getTime();
+  return 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'.replace(/[x]/g, function (c) {
+    const r = (d + Math.random() * 16) % 16 | 0;
+    d = Math.floor(d / 16);
+    return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
+  });
+}
 
 /**
  * 该组件可以弹出 ant 的 Modal 和 Drawer
  * 同一个页面可以弹出多个Modal 和 Drawer
  */
 const modawer = (Comp) => (compProps) => {
-  const [modalProps, setModalProps] = useState({})
-  const [drawerProps, setDrawerProps] = useState({})
+  const [modalProps, setModalProps] = useState({});
+  const [drawerProps, setDrawerProps] = useState({});
 
   const showModal = (props) => {
-    const mProps = { ...props, visible: true }
-    const { key } = props
+    const mProps = { ...props, visible: true };
+    const key = uniqueKey();
     setModalProps({
       ...modalProps,
-      [key]: mProps, 
-    })
+      [key]: mProps,
+    });
     return () => {
-      const nextProps = { ...mProps, visible: false }
-      setModalProps({ ...modalProps, [key]: nextProps })
-    }
-  }
+      const nextProps = { ...mProps, visible: false };
+      setModalProps({ ...modalProps, [key]: nextProps });
+    };
+  };
 
   const showDrawer = (props) => {
-    const dProps = { ...props, visible: true }
-    const { key } = props
+    const dProps = { ...props, visible: true };
+    const key = uniqueKey();
     setDrawerProps({
       ...modalProps,
-      [key]: dProps, 
-    })
+      [key]: dProps,
+    });
     return () => {
-      const nextProps = { ...dProps, visible: false }
-      setDrawerProps({ ...dProps, [key]: nextProps })
-    }
-  }
+      const nextProps = { ...dProps, visible: false };
+      setDrawerProps({ ...dProps, [key]: nextProps });
+    };
+  };
 
   return (
     <>
       <Comp {...compProps} showModal={showModal} showDrawer={showDrawer} />
       {[modalProps, drawerProps].map((container, i) => {
-        const Container = i === 0 ? Modal : Drawer
-        return Object.values(container).map((item) => {
-          const { 
-            key, 
-            title, 
-            width,
-            content: { component: Compo, props: contentProps},
-            ...others
-          } = item
+        const Container = i === 0 ? Modal : Drawer;
+        return Object.entries(container).map((item) => {
+          const [
+            key,
+            {
+              title,
+              width,
+              content: { component: Compo, props: contentProps },
+              ...others
+            },
+          ] = item;
           return (
             <Container
               key={key}
@@ -59,8 +69,8 @@ const modawer = (Comp) => (compProps) => {
             >
               <Compo {...contentProps} />
             </Container>
-          )
-        })
+          );
+        });
       })}
     </>
   );
@@ -72,6 +82,6 @@ export const decorator = (Container) => (containerProps) => (Comp) => (compProps
   <Container {...containerProps}>
     <Comp {...compProps} />
   </Container>
-)
+);
 
 // decorator(Modal)({ title: 'title' })(LoginComp)

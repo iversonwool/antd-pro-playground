@@ -58,6 +58,7 @@
     "moment": "^2.25.3",
     "omit.js": "^2.0.2",
     "qs": "^6.9.0",
+    "rc-scroll-anim": "^2.7.6",
     "rc-tween-one": "^2.7.3",
     "react": "^17.0.0",
     "react-dev-inspector": "^1.1.1",
