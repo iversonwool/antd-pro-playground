@@ -19,15 +19,15 @@ const modawer = (Comp) => (compProps) => {
   const [drawerProps, setDrawerProps] = useState({});
 
   const showModal = (props) => {
-    const mProps = { ...props, visible: true };
-    const key = uniqueKey();
+    const mProps = { ...props, visible: true, };
+    // const key =  key只能从外面传 不然生成多个Modal 
     setModalProps({
       ...modalProps,
-      [key]: mProps,
+      [props.key]: mProps,
     });
     return () => {
       const nextProps = { ...mProps, visible: false };
-      setModalProps({ ...modalProps, [key]: nextProps });
+      setModalProps({ ...modalProps, [props.key]: nextProps });
     };
   };
 
@@ -50,6 +50,7 @@ const modawer = (Comp) => (compProps) => {
       {[modalProps, drawerProps].map((container, i) => {
         const Container = i === 0 ? Modal : Drawer;
         return Object.entries(container).map((item) => {
+          console.log('item',item)
           const [
             key,
             {
