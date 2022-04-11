@@ -33,14 +33,14 @@ const modawer = (Comp) => (compProps) => {
 
   const showDrawer = (props) => {
     const dProps = { ...props, visible: true };
-    const key = uniqueKey();
+    // const key = uniqueKey();
     setDrawerProps({
       ...modalProps,
-      [key]: dProps,
+      [props.key]: dProps,
     });
     return () => {
       const nextProps = { ...dProps, visible: false };
-      setDrawerProps({ ...dProps, [key]: nextProps });
+      setDrawerProps({ ...dProps, [props.key]: nextProps });
     };
   };
 

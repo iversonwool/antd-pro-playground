@@ -1,8 +1,9 @@
 import React from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
-import { Card, Alert, Typography } from 'antd';
+import { Card, Alert, Typography, Button } from 'antd';
 import { useIntl, FormattedMessage } from 'umi';
 import styles from './Welcome.less';
+import InnerFunc from './leehow/innerFunc';
 
 const CodePreview = ({ children }) => (
   <pre className={styles.pre}>
@@ -14,6 +15,7 @@ const CodePreview = ({ children }) => (
 
 export default () => {
   const intl = useIntl();
+  const innerRef = React.useRef();
   return (
     <PageContainer>
       <Card>
@@ -58,6 +60,17 @@ export default () => {
         </Typography.Text>
         <CodePreview>yarn add @ant-design/pro-layout</CodePreview>
       </Card>
+
+      <InnerFunc ref={innerRef} />
+
+      <Button
+
+        onClick={() => {
+          innerRef.current?.anotherFocus();
+        }}
+      >
+        inner func call
+      </Button>
     </PageContainer>
   );
 };
