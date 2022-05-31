@@ -24,6 +24,8 @@ class Animation extends Component {
     //   animateComponnet: Comp,
     //   animateType: AnimateTypes.bounce,
     // });
+
+    const layout = <CustomView />
     return (
       <div>
         <TweenOne
@@ -65,6 +67,9 @@ class Animation extends Component {
 
 
         <Button type="primary" onClick={this.animateAgain}>trigger</Button>
+
+
+        {/* <CustomView /> */}
       </div>
     );
   }

@@ -89,6 +89,12 @@ export default [
                 component: './leehow/tsPlayground'
               },
               {
+                name: 'css test',
+                icon: 'github',
+                path: '/css-test',
+                component: './leehow/css_test'
+              },
+              {
                 component: './404',
               },
             ],
