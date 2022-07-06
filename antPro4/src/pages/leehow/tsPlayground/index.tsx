@@ -1,5 +1,6 @@
 import { Button } from 'antd';
 import React from 'react';
+import Conditional from '@/pages/portal'
 
 interface User {
   name: string;
@@ -17,22 +18,35 @@ interface User {
 // };
 
 class PG extends React.Component {
+  state= {
+    active: false
+  }
   msg = 'hello';
   render() {
+    const {active}  = this.state
     return (
       <div>
         <Button
           onClick={() => {
-            this.msg = 'change msg';
+            // this.msg = 'change msg';
             // 如果父组件不rerender 就算子组件props改变
             // 这样写是因为父组件不render 导致页面不刷新
             // this.forceUpdate()
+            this.setState({active: true});
           }}
         >
           Change
         </Button>
 
-        <DemoView title={this.msg} />
+        <Conditional active={active}>
+
+          <DemoView title={'hdsadlslfjdsajkfjdkasjfkjdsajkfjdskaj'} />
+        </Conditional>
+
+        <Button onClick={()=> {this.setState({active: false})}}>xxxxx</Button>
+        
+
+        {/* <DemoView title={this.msg} /> */}
       </div>
     );
   }
@@ -41,6 +55,9 @@ class PG extends React.Component {
 export default PG;
 
 class DemoView extends React.Component {
+  componentDidMount(): void {
+    console.log('DemoView-componentDidMount')
+  }
 
   UNSAFE_componentWillReceiveProps(nextProps: any): void {
     console.log(nextProps)
@@ -52,6 +69,10 @@ class DemoView extends React.Component {
 
   componentDidUpdate() {
     console.log('-----')
+  }
+
+  componentWillUnmount(): void {
+    console.log('DemoView - componentWillUnmount')
   }
   
   render(): React.ReactNode {

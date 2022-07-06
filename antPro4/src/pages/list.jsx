@@ -1,6 +1,22 @@
+// eslint-disable-next-line max-classes-per-file
 import React, { Component } from 'react';
 import {Table, Button} from 'antd'
 import styles from './list.less'
+import ReactDOM from 'react-dom'
+
+
+class CCC extends Component {
+
+  componentDidMount() {
+    console.log('CCC - componentDidMount - called');
+  }
+
+  render() {
+    return (
+      <div>heee</div>
+    )
+  }
+}
 
 class List extends Component {
 
@@ -17,6 +33,10 @@ class List extends Component {
     this.setState({
       height: container.offsetHeight - tableContainer.offsetTop
     })
+
+    // const ccc = <CCC />
+    // const div = document.createElement('div')
+    // ReactDOM.render(ccc, div)
   }
 
   render() {
