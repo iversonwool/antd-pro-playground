@@ -11,7 +11,7 @@ import A from './a';
 import MemorizedPlayground from './memorized';
 import StaleExample from './hookStaleExample'
 import PreviousState from './previousState'
-import ErrorHandler from './ErrorHandle'
+import ErrorHandler from './errorHandle'
 
 const Playground = (props) => {
   // 我是一段注释
