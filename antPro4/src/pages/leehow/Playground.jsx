@@ -44,6 +44,9 @@ const Playground = (props) => {
   //     if (timerID) clearInterval(timerID)
   //   }
   // }, [])
+
+
+  const fcRef = React.useRef()
   return (
     <div>
 
@@ -97,7 +100,7 @@ const Playground = (props) => {
         <LoginComp />
       </Modalable>
       <UseReducerPlayground />
-      {/* <FunctionComp /> */}
+      <FunctionComp ref={fcRef} />
       <Divider style={{ borderTop: '50px solid black' }} />
 
 
@@ -110,7 +113,12 @@ const Playground = (props) => {
       <Button
         onClick={() => {
           setText('修改A');
+
+
+          fcRef.current?.privateMethod()
         }}
+
+
       >
         修改A的文本
       </Button>
