@@ -95,6 +95,12 @@ export default [
                 component: './leehow/css_test'
               },
               {
+                name: 'moment playground',
+                icon: 'github',
+                path: '/moment',
+                component: './leehow/momentPG'
+              },
+              {
                 component: './404',
               },
             ],
