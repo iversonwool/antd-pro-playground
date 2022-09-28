@@ -4,7 +4,18 @@ import React, { useEffect, useState } from 'react';
 
 const promise = () => Promise.resolve(9)
 
-const FunctionComp = () => {
+const FunctionComp = (props, ref) => {
+  function privateMethod() {
+    alert('private')
+  }
+  React.useImperativeHandle(ref, () => {
+    return {
+      privateMethod,
+    }
+  })
+
+  
+
   let number = null
   const [count, setCount] = useState(() => 0)
   useEffect(() => {
@@ -31,4 +42,4 @@ const FunctionComp = () => {
   );
 };
 
-export default FunctionComp;
+export default React.forwardRef(FunctionComp);
