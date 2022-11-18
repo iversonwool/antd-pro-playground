@@ -13,6 +13,29 @@ const CodePreview = ({ children }) => (
   </pre>
 );
 
+/**
+ * Counter
+ */
+function Counter() {
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    const id = setInterval(() => {
+      // console.log('---interval count: %i', count)
+      setCount((c) => {
+        console.log('---interval count: %i', c)
+        return c + 1
+      });
+    }, 1000);
+    return () => {
+      console.log('clear interval');
+      clearInterval(id)
+    };
+  }, []);
+
+  return <h1>定时器：{count}</h1>;
+}
+
 export default () => {
   const intl = useIntl();
   const innerRef = React.useRef();
@@ -71,6 +94,8 @@ export default () => {
       >
         inner func call
       </Button>
+
+      <Counter />
     </PageContainer>
   );
 };

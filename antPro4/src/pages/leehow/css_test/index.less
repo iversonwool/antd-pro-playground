@@ -1,4 +1,15 @@
 .CssTest {
-  background-color: magenta;
+  // background-color: magenta;
   height: calc(100vh - 220px);
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  .right {
+    flex: 1;
+    .item {
+      height: 300px;
+    }
+  }
+
+
 }
