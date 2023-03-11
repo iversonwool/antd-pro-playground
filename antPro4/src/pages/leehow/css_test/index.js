@@ -9,11 +9,17 @@ export default class CssTest extends Component {
   };
   render() {
     return (
+
+
+      <>
+
+      {/* <div style={{height: 500, backgroundColor: 'black'}} /> */}
       <div className={styles.CssTest}>
         <Anchor
+          offsetTop={300}
           onChange={this.onAnchorChange}
           affix
-          showInkInFixed={false}
+          // showInkInFixed={false}
           getContainer={() => document.querySelector(`.${styles.CssTest}`)}
         >
           <Link href="#components-anchor-demo-basic" title="Basic demo" />
@@ -50,6 +56,8 @@ export default class CssTest extends Component {
           </div>
         </div>
       </div>
+      </>
+      
     );
   }
 }
