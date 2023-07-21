@@ -40,7 +40,7 @@ export default () => {
   const intl = useIntl();
   const innerRef = React.useRef();
   return (
-    <PageContainer>
+    <PageContainer className={styles.myButton}>
       <Card>
         <Alert
           message={intl.formatMessage({
@@ -87,10 +87,10 @@ export default () => {
       <InnerFunc ref={innerRef} />
 
       <Button
-
         onClick={() => {
           innerRef.current?.anotherFocus();
         }}
+        
       >
         inner func call
       </Button>

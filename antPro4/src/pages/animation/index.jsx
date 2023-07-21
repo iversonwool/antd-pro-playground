@@ -4,30 +4,90 @@ import TweenOne from 'rc-tween-one';
 import AnimateCSS from './animate.css';
 import styles from './index.less';
 
-import c from 'animate.css'
-import classnames from 'classnames'
+import c from 'animate.css';
+import classnames from 'classnames';
 
-import CustomView from './customView'
+import CustomView from './customView';
 
 import AnimateWrapper, { AnimateTypes } from './animate';
-import { Button } from 'antd';
+import { Button, Tabs } from 'antd';
+import LeaderLine from '@/../public/leader-line.min.js';
 
-const Comp = () => <h1>HELLO WORLD!</h1>
+const Comp = () => <h1>HELLO WORLD!</h1>;
 
 class Animation extends Component {
+  state = {
+    flag: false,
+    showTab2: false
+  };
 
-  animateAgain = () => { this.animateView.animate() }
-  
+  animateAgain = () => {
+    this.animateView.animate();
+
+    // this.setState(
+    //   {
+    //     flag: true,
+    //   },
+    //   () => {
+    //     const from = document.getElementById('from');
+
+    //     const to2 = document.getElementById('to2');
+    //     const to3 = document.getElementById('to3');
+    //     new LeaderLine(from, to2);
+    //     new LeaderLine(from, to3, { path: 'grid', startSocket: 'bottom', endSocket: 'top' });
+    //   },
+    // );
+  };
+
+  componentDidMount() {
+    this.draw();
+    window.addEventListener('scroll', this.onScroll)
+    setTimeout(() => {
+      this.setState({ showTab2: true });
+    }, 1000)
+  }
+
+  onScroll = () => {
+    console.log('onScroll')
+  }
+
+  draw = () => {
+    const from = document.getElementById('from');
+    console.log('from', from);
+    const to1 = document.getElementById('to1');
+    const to2 = document.getElementById('to2');
+    const to3 = document.getElementById('to3');
+    new LeaderLine(from, to1, { path: 'grid', startSocket: 'bottom', endSocket: 'top' });
+    new LeaderLine(from, to2)
+    new LeaderLine(from, to3, { path: 'grid', startSocket: 'bottom', endSocket: 'top' })
+  };
+
   render() {
     const { paused } = this.props;
     // const AnimateView = animate({
     //   animateComponnet: Comp,
     //   animateType: AnimateTypes.bounce,
     // });
-
-    const layout = <CustomView />
+    const { flag, showTab2 } = this.state;
+    const layout = <CustomView />;
     return (
       <div>
+        <Tabs defaultActiveKey='item-2'>
+          <Tabs.TabPane tab="项目 1" key="item-1">
+            内容 1
+          </Tabs.TabPane>
+          <Tabs.TabPane tab="项目 2" key="item-2" forceRender>
+            <div className={styles.leaderLine} >
+              <div id="from" className={styles.from}></div>
+              <div className={styles.toArea}>
+                <div id="to1" className={styles.to}></div>
+                <div id="to2" className={styles.to}></div>
+                <div id="to3" className={styles.to}></div>
+              </div>
+            </div>
+          </Tabs.TabPane>
+        </Tabs>
+
         <TweenOne
           animation={{
             x: 80, //让code-box-shape向右移动80
@@ -54,10 +114,11 @@ class Animation extends Component {
 
         <AnimateView /> */}
 
-
-        <AnimateWrapper 
-          type={AnimateTypes.bounce} 
-          ref={(animateView) => {this.animateView = animateView}}
+        <AnimateWrapper
+          type={AnimateTypes.bounce}
+          ref={(animateView) => {
+            this.animateView = animateView;
+          }}
         >
           <h1>Animate Children</h1>
           <Comp />
@@ -65,9 +126,9 @@ class Animation extends Component {
           <Button type="primary">Primary Button</Button>
         </AnimateWrapper>
 
-
-        <Button type="primary" onClick={this.animateAgain}>trigger</Button>
-
+        <Button type="primary" onClick={this.animateAgain}>
+          trigger
+        </Button>
 
         {/* <CustomView /> */}
       </div>
