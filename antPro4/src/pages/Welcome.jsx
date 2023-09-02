@@ -4,6 +4,7 @@ import { Card, Alert, Typography, Button } from 'antd';
 import { useIntl, FormattedMessage } from 'umi';
 import styles from './Welcome.less';
 import InnerFunc from './leehow/innerFunc';
+import Snapshot from './leehow/Snapshot';
 
 const CodePreview = ({ children }) => (
   <pre className={styles.pre}>
@@ -96,6 +97,9 @@ export default () => {
       </Button>
 
       <Counter />
+
+
+      <Snapshot />
     </PageContainer>
   );
 };
