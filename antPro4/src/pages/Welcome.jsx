@@ -20,24 +20,24 @@ const CodePreview = ({ children }) => (
 function Counter() {
   const [count, setCount] = React.useState(0);
 
-  React.useEffect(() => {
-    const id = setInterval(() => {
-      // console.log('---interval count: %i', count)
-      setCount((c) => {
-        console.log('---interval count: %i', c)
-        return c + 1
-      });
-    }, 1000);
-    return () => {
-      console.log('clear interval');
-      clearInterval(id)
-    };
-  }, []);
+  // React.useEffect(() => {
+  //   const id = setInterval(() => {
+  //     // console.log('---interval count: %i', count)
+  //     setCount((c) => {
+  //       console.log('---interval count: %i', c)
+  //       return c + 1
+  //     });
+  //   }, 1000);
+  //   return () => {
+  //     console.log('clear interval');
+  //     clearInterval(id)
+  //   };
+  // }, []);
 
   return <h1>定时器：{count}</h1>;
 }
 
-export default () => {
+export default (props) => {
   const intl = useIntl();
   const innerRef = React.useRef();
   return (
@@ -90,6 +90,8 @@ export default () => {
       <Button
         onClick={() => {
           innerRef.current?.anotherFocus();
+
+          console.log(props)
         }}
         
       >
