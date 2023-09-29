@@ -102,6 +102,30 @@ export default (props) => {
 
 
       <Snapshot />
+
+      <AC>
+        {() => <BC />}
+      </AC>
     </PageContainer>
   );
 };
+
+
+class AC extends React.Component {
+
+  render() {
+    return <div>
+      AC
+      {this.props.children()}
+    </div>
+  }
+}
+
+class BC extends React.Component {
+
+  render() {
+    return <div>
+      BC
+    </div>
+  }
+}
