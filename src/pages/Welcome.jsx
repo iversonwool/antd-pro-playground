@@ -112,10 +112,20 @@ export default (props) => {
 
 
 class AC extends React.Component {
-
+  state = {
+    a: 1
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('prevState', prevState);
+    console.log('this.state', this.state);
+    console.log('real dom', document.getElementById('sss').textContent)
+  }
   render() {
-    return <div>
-      AC
+    return <div >
+    <div id="sss">{this.state.a}</div>
+      <Button style={{color: 'white'}} onClick={() => {
+        this.setState({a: 2});
+      }}>xxxx</Button>
       {this.props.children()}
     </div>
   }
