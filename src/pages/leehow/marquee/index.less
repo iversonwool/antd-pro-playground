@@ -1,0 +1,149 @@
+.item {
+  height: 100px;
+  width: 100px;
+}
+
+// 封装一个动画的函数  将动画名和符号传进去  
+// 如果上下时间和播放方式都一致的话可以都放进去
+.chart-keyframes(@name, @sign) {
+  @keyframes @name {
+    0% {
+      transform: translateY(unit(@sign * 0, px));
+    }
+
+    20% {
+      transform: translateY(unit(@sign * 120, px));
+    }
+
+    40% {
+      transform: translateY(unit(@sign * 240, px));
+    }
+
+    60% {
+      transform: translateY(unit(@sign * 480, px));
+    }
+
+    80% {
+      transform: translateY(unit(@sign * 600, px));
+    }
+
+    100% {
+      transform: translateY(unit(@sign * 720, px));
+    }
+  }
+
+  animation: @name 10s linear infinite;
+}
+
+.h-section-part2-plots-top {
+  height: 600px;
+  width: 300px;
+  overflow: hidden;
+
+  ul {
+    // display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .chart-keyframes(hotList, -1);
+    // animation: hotList 13s linear infinite;   
+    // 都封装在函数里的话这里就不用写了 只需要在上面那行把名字和符号传过去就可以了
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    li {
+      width: 300px;
+      // min-width: 330px;
+      height: 240px;
+      // margin-top: 24px;
+      // margin-right: 24px;
+
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+
+  // @keyframes hotList {
+  //   0% {
+  //     transform: translateX(0);
+  //   }
+
+  //   20% {
+  //     transform: translateX(-354px);
+  //   }
+
+  //   40% {
+  //     transform: translateX(-708px);
+  //   }
+
+  //   60% {
+  //     transform: translateX(-1068px);
+  //   }
+
+  //   80% {
+  //     transform: translateX(-1416px);
+  //   }
+
+  //   100% {
+  //     transform: translateX(-1770px);
+  //   }
+  // }
+}
+
+.h-section-part2-plots-bottom {
+  width: 1200px;
+  overflow: hidden;
+
+  ul {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .chart-keyframes(latestList, 1);
+    // animation: latestList 13s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    li {
+      width: 330px;
+      min-width: 330px;
+      height: 240px;
+      margin-top: 24px;
+      margin-right: 24px;
+
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+
+  // @keyframes latestList {
+  //   0% {
+  //     transform: translateX(0);
+  //   }
+
+  //   20% {
+  //     transform: translateX(354px);
+  //   }
+
+  //   40% {
+  //     transform: translateX(708px);
+  //   }
+
+  //   60% {
+  //     transform: translateX(1068px);
+  //   }
+
+  //   80% {
+  //     transform: translateX(1416px);
+  //   }
+
+  //   100% {
+  //     transform: translateX(1770px);
+  //   }
+  // }
+}
