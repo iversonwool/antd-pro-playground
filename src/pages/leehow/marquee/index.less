@@ -1,6 +1,30 @@
-.item {
-  height: 100px;
-  width: 100px;
+
+// @import "~slick-carousel/slick/slick.css"; 
+// @import "~slick-carousel/slick/slick-theme.css";
+
+@keyframes loop_vertical_marquee {
+  0% {transform: translateY(0);}
+  100% {transform: translateY(-50%);}
+}
+
+.anime {
+  animation: loop_vertical_marquee 10000ms linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.c {
+  :global {
+    .slick-vertical .slick-slide {
+      border: none;
+    }
+  }
+  .item {
+    height: 30px;
+    width: 100px;
+  }
 }
 
 // 封装一个动画的函数  将动画名和符号传进去  

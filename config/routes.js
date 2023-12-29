@@ -100,7 +100,7 @@ export default [
                 path: '/moment',
                 component: './leehow/momentPG'
               },
-              {path: '/marquee',component:'./leehow/marquee/marquee'},
+              {path: '/marquee',component:'./leehow/marquee/VerticalMarquee'},
               {
                 component: './404',
               },

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './index.less';
 import ReactFastMarquee from 'react-fast-marquee';
 
-function getRandomColor() {
+export function getRandomColor() {
   return '#' + Math.random().toString(16).slice(2, 8);
 }
 
